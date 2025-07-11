@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Star, Shield, Users, MessageCircle, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import celestialHero from "@/assets/celestial-hero.jpg";
 import celestialIcon from "@/assets/celestial-icon.png";
 
@@ -17,8 +18,12 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="flex gap-3">
-          <Button variant="ghost">Sign In</Button>
-          <Button variant="celestial">Get Started</Button>
+          <Button variant="ghost" asChild>
+            <Link to="/login">Sign In</Link>
+          </Button>
+          <Button variant="celestial" asChild>
+            <Link to="/signup">Get Started</Link>
+          </Button>
         </div>
       </nav>
 
@@ -46,19 +51,21 @@ const LandingPage = () => {
             Built for Latter-day Saints who prioritize gospel values and meaningful relationships.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="xl" variant="celestial" className="shadow-celestial">
-              <Star className="w-5 h-5" />
-              Start Your Journey
+            <Button size="xl" variant="celestial" className="shadow-celestial" asChild>
+              <Link to="/signup">
+                <Star className="w-5 h-5" />
+                Start Your Journey
+              </Link>
             </Button>
-            <Button size="xl" variant="heaven">
-              Learn More
+            <Button size="xl" variant="heaven" asChild>
+              <Link to="#features">Learn More</Link>
             </Button>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="px-6 py-20 bg-white/50 backdrop-blur-sm">
+      <section id="features" className="px-6 py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">Gospel-Centered Features</h2>
